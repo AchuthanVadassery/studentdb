@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('add_exam',[ExamController::class,'AddExam']);
+Route::post('update_exam/{id}',[ExamController::class,'UpdateExam']);
+Route::delete('delete_exam/{id}',[ExamController::class,'DeleteExam']);
