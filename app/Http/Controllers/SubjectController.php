@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Helpers\ApiHelper;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -15,7 +15,17 @@ class SubjectController extends Controller
 
   
     public function store(Request $request)
-    { 
+    {   
+       $rules=array(
+           'name'=>"required|min:2",
+           'course_id'=>"required"
+       );
+       $validator=Validator::make($request->all(),$rules);
+       if ($validator->fails())
+       {
+           return $validator->errors();
+       }
+       else {
         $subject= Subject::create([
             'course_id'=>$request->course_id,
             'name' => $request->name,
@@ -23,6 +33,7 @@ class SubjectController extends Controller
 
         ]);
         return $this->sendResponse(true,[ ],'registration successful',200);
+    }
       
         
     }

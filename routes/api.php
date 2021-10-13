@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\MarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,5 @@ Route::delete('subject_delete/{id}',[SubjectController::class,'destroy']);
 Route::post('register_student',[StudentController::class,'RegisterStudent']);
 Route::post('update_student/{id}',[StudentController::class,'UpdateStudent']);
 Route::delete('delete_student/{id}',[StudentController::class,'DeleteStudent']);
+  
+
