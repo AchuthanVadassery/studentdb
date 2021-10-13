@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,11 @@ Route::delete('course_delete/{id}',[CourseController::class,'delete']);
 Route::post('add_exam',[ExamController::class,'AddExam']);
 Route::post('update_exam/{id}',[ExamController::class,'UpdateExam']);
 Route::delete('delete_exam/{id}',[ExamController::class,'DeleteExam']);
+//subject route
+
+Route::post('subject_store',[SubjectController::class,'store']);
+Route::post('subject_update/{id}',[SubjectController::class,'update']);
+Route::delete('subject_delete/{id}',[SubjectController::class,'destroy']);
+
+
+

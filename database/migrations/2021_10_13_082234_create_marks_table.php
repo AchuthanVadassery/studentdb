@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExamsTable extends Migration
+class CreateMarksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class CreateExamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('exams', function (Blueprint $table) {
+        Schema::create('marks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->timestamps();
-            $table->delete('deleted_at');
+            $table->integer('student_id');
+            $table->integer('subject_id');
+            $table->integer('exam_id');
+            $table->integer('mark');
 
+
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +34,6 @@ class CreateExamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exams');
+        Schema::dropIfExists('marks');
     }
 }
