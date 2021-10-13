@@ -7,6 +7,7 @@ use App\Models\Mark;
 
 class MarkController extends Controller
 {
+    // combined function to create and update mark details of a student
     public function createORupdate(Request $request)
     {
         if($request->id)

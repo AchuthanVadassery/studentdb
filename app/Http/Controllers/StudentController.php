@@ -10,7 +10,8 @@ class StudentController extends Controller
 {
     // function to register a student
     public function RegisterStudent(Request $request)
-    {
+    { 
+        // validating students details
         $rules=array(
             'name'=>'required|max:255',
             'email'=>'required|email|unique:students',

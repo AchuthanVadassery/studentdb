@@ -16,6 +16,11 @@ Route::post('register',[CourseController::class,'registerCourse']);
 Route::post('course_update/{id}',[CourseController::class,'update']);
 Route::delete('course_delete/{id}',[CourseController::class,'delete']);
 
+//subject route
+Route::post('subject_store',[SubjectController::class,'store']);
+Route::post('subject_update/{id}',[SubjectController::class,'update']);
+Route::delete('subject_delete/{id}',[SubjectController::class,'destroy']);
+
 //Api for adding,updating and deleting exams details
 Route::post('add_exam',[ExamController::class,'AddExam']);
 Route::post('update_exam/{id}',[ExamController::class,'UpdateExam']);
@@ -25,11 +30,6 @@ Route::delete('delete_exam/{id}',[ExamController::class,'DeleteExam']);
 Route::post('register_student',[StudentController::class,'RegisterStudent']);
 Route::post('update_student/{id}',[StudentController::class,'UpdateStudent']);
 Route::delete('delete_student/{id}',[StudentController::class,'DeleteStudent']);
-
-//subject route
-Route::post('subject_store',[SubjectController::class,'store']);
-Route::post('subject_update/{id}',[SubjectController::class,'update']);
-Route::delete('subject_delete/{id}',[SubjectController::class,'destroy']);
 
 // Api for adding,updating,deleting mark of a student
 Route::post('createORupdate/{id?}',[MarkController::class,'createORupdate']);
