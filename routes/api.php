@@ -8,9 +8,9 @@ use App\Http\Controllers\MarkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 // Api to add,update and register a course
 Route::post('register',[CourseController::class,'registerCourse']);
 Route::post('course_update/{id}',[CourseController::class,'update']);
