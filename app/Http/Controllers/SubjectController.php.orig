@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Helpers\ApiHelper;
+<<<<<<< HEAD
+=======
 use Illuminate\Support\Facades\Validator;
+>>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {   
+<<<<<<< HEAD
     use ApiHelper;
-    //function to register a subject
+    public function store(Request $request)
+    { 
+=======
 
+    use ApiHelper;
+
+    //function to register a subject
   public function store(Request $request)
     {   
        $rules=array(
@@ -23,37 +32,39 @@ class SubjectController extends Controller
            return $validator->errors();
        }
        else {
+>>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
         $subject= Subject::create([
             'course_id'=>$request->course_id,
             'name' => $request->name,
-            
-
         ]);
+<<<<<<< HEAD
+        return $this->sendResponse(true,[ ],'registration successful',200);   
+    }
+
+=======
         return $this->sendResponse(true,[ ],'registration successful',200);
-       }
+    }
       
         
     }
 
     
 //   function to update a subject
+>>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
     public function update(Request $request, $id)
     {  
         $subject=Subject::find($id)->update([
             'course_id'=>$request->course_id,
             'name'=>$request->name,
         ]);
-        return $this->sendResponse(true,[],'updation successful',200); 
+        return $this->sendResponse(true,[],'updation successful',200);    
     }
-
     // function to delete a subject
 
     public function destroy($id)
     { 
         $subject=Subject::find($id);
         $subject->delete();
-        return $this->sendResponse(true,[ ],'Deletion successful',200);
-
-        
+        return $this->sendResponse(true,[ ],'Deletion successful',200); 
     }
 }
