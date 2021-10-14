@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 namespace App\Http\Controllers;
@@ -8,7 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Mark;
 
 class MarkController extends Controller
+<<<<<<< HEAD
+{  
+    //function to add and update mark
+=======
 {
+    // combined function to create and update mark details of a student
+>>>>>>> 4732da08cfe4107f90a77b6baa058a37e6bb03b3
     public function createORupdate(Request $request)
     {
         if($request->id)
@@ -39,4 +43,3 @@ class MarkController extends Controller
         return response()->json(['deletion'=>'successfull'], 200);
     }
 }
->>>>>>> bf23706face69959b536e0f426b81146b7b7d4bc

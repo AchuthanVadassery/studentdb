@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {   
-    use ApiHelper;
- 
 
-   
- //function to register a subject
-  
-    public function store(Request $request)
+    use ApiHelper;
+
+    //function to register a subject
+  public function store(Request $request)
     {   
        $rules=array(
            'name'=>"required|min:2",
