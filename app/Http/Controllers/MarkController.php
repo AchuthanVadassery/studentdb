@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Mark;
 
 class MarkController extends Controller
+{
+{
+    // combined function to create and update mark details of a student
 {  
-    //function to add and update mark
+    
     public function createORupdate(Request $request)
     {
         if($request->id)
