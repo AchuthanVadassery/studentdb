@@ -17,13 +17,11 @@ class ExamController extends Controller
         $validated=Validator::make($request->all(),$rules);
         if($validated->fails())
             return $validated->errors();
-
         else{
             $exams=Exam::create([
                 'name'=>$request->name
             ]);
             return response()->json(['registration'=>'successfull'], 200);
-    
         }
     }
 
@@ -40,8 +38,6 @@ class ExamController extends Controller
     public function DeleteExam(Request $request,$id)
     {
         $exams=Exam::find($id)->delete();
-        return response()->json(['deletion'=>'successfull'], 200);
-
-        
+        return response()->json(['deletion'=>'successfull'], 200); 
     }
 }
