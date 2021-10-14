@@ -7,13 +7,19 @@ use App\Models\Mark;
 
 class MarkController extends Controller
 {
-{
     // combined function to create and update mark details of a student
-{  
-    
     public function createORupdate(Request $request)
     {
-        if($request->id)
+        $rules=array(
+            'student_id'=>'required',
+            'subject_id'=>'required',
+            'exam_id'=> 'required',
+            'mark'=>'required'
+        );
+        $validated=Validator::make($request->all(),$rules);
+        if($validated->fails())
+            return $validated->errors();
+        else if($request->id)
         {
             $marks=Mark::find($request->id)->update([
                 'student_id' => $request->student_id,

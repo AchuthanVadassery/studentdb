@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Subject;
 use App\Helpers\ApiHelper;
 use Illuminate\Support\Facades\Validator;
@@ -8,8 +9,7 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {   
-
-    use ApiHelper;
+use ApiHelper;
 
     //function to register a subject
   public function store(Request $request)
@@ -32,12 +32,9 @@ class SubjectController extends Controller
         ]);
         return $this->sendResponse(true,[ ],'registration successful',200);
     }
-      
-        
     }
 
-    
-//   function to update a subject
+    //   function to update a subject
     public function update(Request $request, $id)
     {  
         $subject=Subject::find($id)->update([
@@ -45,16 +42,13 @@ class SubjectController extends Controller
             'name'=>$request->name,
         ]);
         return $this->sendResponse(true,[],'updation successful',200);
-        
     }
-    // function to delete a subject
 
+    // function to delete a subject
     public function destroy($id)
     { 
         $subject=Subject::find($id);
         $subject->delete();
         return $this->sendResponse(true,[ ],'Deletion successful',200);
-
-        
     }
 }
