@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class CourseController extends Controller
 {   
     use ApiHelper;
+    // function to register course
     public function registerCourse(Request $request){
         $rules=array(
             'name'=>"required|min:2"
@@ -29,6 +30,7 @@ class CourseController extends Controller
     }
 
     }
+    // function to update course
     public function update(Request $request,$id){
         
         $course=Course::find($id)->update([
@@ -37,6 +39,7 @@ class CourseController extends Controller
         return $this->sendResponse(true,[],'updation successful',200);
 
     }
+    // function to delete course
     public function delete(Request $request,$id){
         $course=Course::find($id);
         $course->delete();

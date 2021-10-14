@@ -12,7 +12,7 @@ class SubjectController extends Controller
  
 
    
-
+ //function to register a subject
   
     public function store(Request $request)
     {   
@@ -39,7 +39,7 @@ class SubjectController extends Controller
     }
 
     
-  
+//   function to update a subject
     public function update(Request $request, $id)
     {  
         $subject=Subject::find($id)->update([
@@ -49,6 +49,7 @@ class SubjectController extends Controller
         return $this->sendResponse(true,[],'updation successful',200);
         
     }
+    // function to delete a subject
 
     public function destroy($id)
     { 
