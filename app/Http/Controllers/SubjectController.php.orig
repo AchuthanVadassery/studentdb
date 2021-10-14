@@ -1,25 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Subject;
 use App\Helpers\ApiHelper;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Validator;
->>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {   
 <<<<<<< HEAD
-    use ApiHelper;
-    public function store(Request $request)
-    { 
+use ApiHelper;
+
 =======
-
     use ApiHelper;
-
+>>>>>>> 8149aeb9f5872b8e92dc0525f4ce1a569be0da39
     //function to register a subject
+
   public function store(Request $request)
     {   
        $rules=array(
@@ -32,39 +29,44 @@ class SubjectController extends Controller
            return $validator->errors();
        }
        else {
->>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
         $subject= Subject::create([
             'course_id'=>$request->course_id,
             'name' => $request->name,
-        ]);
-<<<<<<< HEAD
-        return $this->sendResponse(true,[ ],'registration successful',200);   
-    }
+            
 
-=======
+        ]);
         return $this->sendResponse(true,[ ],'registration successful',200);
+<<<<<<< HEAD
     }
+=======
+       }
       
         
+>>>>>>> 8149aeb9f5872b8e92dc0525f4ce1a569be0da39
     }
 
-    
-//   function to update a subject
->>>>>>> 61b1d0ee368a99c80ef6348088e6803f18335d83
+    //   function to update a subject
     public function update(Request $request, $id)
     {  
         $subject=Subject::find($id)->update([
             'course_id'=>$request->course_id,
             'name'=>$request->name,
         ]);
-        return $this->sendResponse(true,[],'updation successful',200);    
+<<<<<<< HEAD
+        return $this->sendResponse(true,[],'updation successful',200);
     }
-    // function to delete a subject
+=======
+        return $this->sendResponse(true,[],'updation successful',200); 
+    }
 
+    // function to delete a subject
+>>>>>>> 8149aeb9f5872b8e92dc0525f4ce1a569be0da39
+
+    // function to delete a subject
     public function destroy($id)
     { 
         $subject=Subject::find($id);
         $subject->delete();
-        return $this->sendResponse(true,[ ],'Deletion successful',200); 
+        return $this->sendResponse(true,[ ],'Deletion successful',200);
     }
 }

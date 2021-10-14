@@ -20,18 +20,14 @@ use ApiHelper;
        );
        $validator=Validator::make($request->all(),$rules);
        if ($validator->fails())
-       {
            return $validator->errors();
-       }
        else {
-        $subject= Subject::create([
-            'course_id'=>$request->course_id,
-            'name' => $request->name,
-            
-
-        ]);
-        return $this->sendResponse(true,[ ],'registration successful',200);
-    }
+            $subject= Subject::create([
+               'course_id'=>$request->course_id,
+                'name' => $request->name,
+            ]);
+            return $this->sendResponse(true,[ ],'registration successful',200);
+        }
     }
 
     //   function to update a subject
