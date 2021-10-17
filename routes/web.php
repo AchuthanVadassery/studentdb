@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseBladeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('register',[CourseBladeController::class,'index'])->name('course.register');
+Route::post('/coursestore',[CourseBladeController::class,'store'])->name('course.store');
+Route::get('/courseedit/{id}',[CourseBladeController::class,'edit'])->name('course.edit');
+Route::post('/courseupdate/{id}',[CourseBladeController::class,'update'])->name('course.update');
+Route::get('/coursedelete/{id}',[CourseBladeController::class,'delete'])->name('course.delete');
+
+
