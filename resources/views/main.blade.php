@@ -57,17 +57,18 @@
         <a href="{{route('students.registered')}}" class="nav-link">Registered Students</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Add Course</a>
+        <a href="{{route('course.register')}}" class="nav-link">Add Course</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('subject.register')}}" class="nav-link">Add Subjects</a>
+      </li>
+	  <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('exam.register')}}" class="nav-link">Add Exam</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Search</a>
+        <a href="{{route('search')}}" class="nav-link">Search</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Toppers</a>
-      </li>
+
     </ul>
 
     <!-- Right navbar links -->

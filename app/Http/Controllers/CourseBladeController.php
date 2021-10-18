@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Student;
+
 
 
 class CourseBladeController extends Controller
@@ -42,6 +44,20 @@ class CourseBladeController extends Controller
         {
           $delete=Course::find($id)->forceDelete();
           return redirect()->route('course.register');
+        }
+    public function search(Request $request){
+           $data=Course::all();
+
+            // Get the search value from the request
+            $search = $request->input('search');
+        
+            // Search in the title and body columns from the posts table
+            $posts = Student::query()
+                ->where('course_id', '=', "{$search}%")
+                ->get();
+        
+            // Return the search view with the resluts compacted
+            return view('search', compact('posts','data'));
         }
 
     
