@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseBladeController;
+use App\Http\Controllers\StudentBladeController;
+use App\Http\Controllers\ExamBladeController;
+
 use App\Http\Controllers\SubjectBladeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +27,25 @@ Route::post('/coursestore',[CourseBladeController::class,'store'])->name('course
 Route::get('/courseedit/{id}',[CourseBladeController::class,'edit'])->name('course.edit');
 Route::post('/courseupdate/{id}',[CourseBladeController::class,'update'])->name('course.update');
 Route::get('/coursedelete/{id}',[CourseBladeController::class,'delete'])->name('course.delete');
+
+
+// route to register,edit,update and delete student details
+Route::get('/show_student',[StudentBladeController::class,'ShowStudent'])->name('student.show');
+Route::post('/store_student',[StudentBladeController::class,'RegisterStudent'])->name('student.store');
+Route::get('/edit_student/{id}',[StudentBladeController::class,'EditStudent'])->name('student.edit');
+Route::post('/update_student/{id}',[StudentBladeController::class,'UpdateStudent'])->name('student.update');
+Route::get('/delete_student/{id}',[StudentBladeController::class,'DeleteStudent'])->name('student.delete');
+
+// route to add exam details
+Route::get('exam_register',[ExamBladeController::class,'index'])->name('exam.register');
+Route::post('/exam_store',[ExamBladeController::class,'store'])->name('exam.store');
+Route::get('/exam_edit/{id}',[ExamBladeController::class,'edit'])->name('exam.edit');
+Route::post('/exam_update/{id}',[ExamBladeController::class,'update'])->name('exam.update');
+Route::get('/exam_delete/{id}',[ExamBladeController::class,'delete'])->name('exam.delete');
+
+Route::get('profile',function(){
+return view('student_profile');
+});
 
 // subject route
 Route::get('subject_register',[SubjectBladeController::class,'index'])->name('subject.register');

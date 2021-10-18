@@ -17,4 +17,9 @@ class Student extends Model
         'course_id',
 
     ];
+
+    public function courseFind()
+        {
+            return $this->hasOne(Course::class,'id','course_id');
+        }
 }
