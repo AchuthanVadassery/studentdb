@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
-                                    <h4>Kshiti Ghelani</h4>
+                                    <h4>{{$students->name}}</h4>
                                     <h5>Student</h5>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <a href="{{route('student.edit',$students->id)}}" class="btn btn-info">Edit Profile</a>
                     </div>
                 </div>
                 <div class="row">
@@ -54,7 +54,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->name}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -62,7 +62,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->email}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -70,7 +70,7 @@
                                                 <label>Date of Berth</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{Carbon\Carbon::parse($students->dob)->format('d-m-Y')}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -78,7 +78,7 @@
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->address}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -86,7 +86,7 @@
                                                 <label>Pincode</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->pincode}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -94,7 +94,7 @@
                                                 <label>Course</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->courseFind->name}}</p>
                                             </div>
                                         </div>
                             </div>
@@ -104,7 +104,7 @@
                                                 <label>Course Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p></p>
+                                                <p>{{$students->courseFind->name}}</p>
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Subject Name</label>

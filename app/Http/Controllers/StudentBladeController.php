@@ -77,4 +77,20 @@ class StudentBladeController extends Controller
         return Redirect()->route('student.show');
 
     }
+
+    // function to show all registered students
+    public function RegisteredStudents()
+    {
+        $students=Student::with('courseFind')->get();
+        $courses=Course::pluck('name','id');
+        return view('students_registered',compact('students','courses'));
+    }
+
+    // function to see profile of a student
+    public function StudentProfile($id)
+    {
+        $students=Student::find($id);
+        $courses=Course::pluck('name','id');
+        return view('student_profile',compact('students','courses'));
+    }
 }

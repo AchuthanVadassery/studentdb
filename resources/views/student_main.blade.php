@@ -4,53 +4,11 @@
 <div class="py-12">
         <div class="container">
             <div class="row">                        
-                <!-- students details table -->
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">Students Details</div>
-                            <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">SL No</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Date of Birth</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Pin Code</th>
-                                <th scope="col">Course Name</th>
-                                <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php($i=1)
-                                @foreach($students as $student)
-                                <tr>
-                                <th scope="row">{{$i++}}</th>
-                                <td>{{$student->name}}</td>
-                                <td>{{$student->email}}</td>
-                                <td>{{Carbon\Carbon::parse($student->dob)->format('d-m-Y')}}</td>
-                                <td>{{$student->address}}</td>
-                                <td>{{$student->pincode}}</td>
-                                <td>{{$student->courseFind->name}}</td>
-                                <td>
-                                    <div>
-                                        <a href="{{route('student.edit',$student->id)}}" class="btn btn-info">Edit</a>
-                                        <a href="{{route('student.delete',$student->id)}}" class="btn btn-danger">Delete</a>
-                                    </div>
-                                </td>
-
-                                </tr>
-                                @endforeach
-                            </tbody>
-                            </table>
-                        </div>
-                </div>  
-                <!-- students details table end -->
-
+                
                 <!-- student form to enter the details -->
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Enter The Student Details</div>
+                        <div class="card-header">Student Registration</div>
                         <div class="card-body">
                             <form action="{{route('student.store')}}" method="POST">
                                 @csrf

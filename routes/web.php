@@ -33,6 +33,8 @@ Route::post('/store_student',[StudentBladeController::class,'RegisterStudent'])-
 Route::get('/edit_student/{id}',[StudentBladeController::class,'EditStudent'])->name('student.edit');
 Route::post('/update_student/{id}',[StudentBladeController::class,'UpdateStudent'])->name('student.update');
 Route::get('/delete_student/{id}',[StudentBladeController::class,'DeleteStudent'])->name('student.delete');
+Route::get('/students_registered',[StudentBladeController::class,'RegisteredStudents'])->name('students.registered');
+Route::get('/student_profile/{id}',[StudentBladeController::class,'StudentProfile'])->name('student.profile');
 
 // route to add exam details
 Route::get('exam_register',[ExamBladeController::class,'index'])->name('exam.register');
