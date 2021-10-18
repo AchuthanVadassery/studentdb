@@ -45,7 +45,7 @@
 <div class="row">
               <div class="col-md-8">
                 <div class="card">
-                   <div class="card-header">Add Student Details</div>
+                   <div class="card-header">Add Course Details</div>
 <div id="contact_form">
 <form action="{{route('course.store')}}" method="POST">
                      @csrf

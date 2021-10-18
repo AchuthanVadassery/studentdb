@@ -11,6 +11,7 @@
 <button type="submit" class="btn btn-primary">Add</button>
 
 </form>
+<div>
 
 @if($posts->isNotEmpty())
     @foreach ($posts as $post)
@@ -23,5 +24,6 @@
         <h2>No posts found</h2>
     </div>
 @endif
+</div>
 
 @endsection('admin')
