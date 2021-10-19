@@ -7,12 +7,10 @@
       <option value="{{$row->id}}">{{$row->name}}</option>
       @endforeach
 </select>
-<!-- <input type="text" name="search" required/> -->
 <button type="submit" class="btn btn-primary">Add</button>
-
 </form>
-<div>
 
+<div>
 @if($posts->isNotEmpty())
     @foreach ($posts as $post)
         <div class="post-list">
