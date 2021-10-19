@@ -13,5 +13,23 @@ class Mark extends Model
        'subject_id',
        'exam_id',
        'mark'
-   ];
+    ];
+
+    // function to get the exam name in blade
+    public function FindExam()
+    {
+        return $this->hasOne(Exam::class,'id','exam_id');
+    }
+
+    // function to get the student name in blade
+    public function FindStudent()
+    {
+        return $this->hasOne(Student::class,'id','student_id');
+    }
+
+    // function to get the subject name in blade
+    public function FindSubject()
+    {
+        return $this->hasOne(Subject::class,'id','subject_id');
+    }
 }

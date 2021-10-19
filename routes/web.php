@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseBladeController;
 use App\Http\Controllers\StudentBladeController;
 use App\Http\Controllers\ExamBladeController;
-use App\Http\Controllers\MarkBladeController;
+
+
 use App\Http\Controllers\SubjectBladeController;
+use App\Http\Controllers\MarkBladeController;
 
 
 /*
@@ -50,6 +52,12 @@ Route::post('/course_update/{id}',[SubjectBladeController::class,'update'])->nam
 
 //search route
 Route::get('/search',[CourseBladeController::class,'search'])->name('search');
+
+// mark
+Route::get('add_mark',[MarkBladeController::class,'ShowMark'])->name('mark.add');
+Route::get('/dropdownlist/getSubject/{id}',[MarkBladeController::class,'getSubject']);
+Route::get('/dropdownlist/getStudent/{id}',[MarkBladeController::class,'getStudent']);
+Route::get('/store_mark',[MarkBladeController::class,'StoreMark'])->name('mark.store');
 
 
 Route::get('/download-pdf',[CourseBladeController::class,'downloadPDF'])->name('pdf');

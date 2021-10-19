@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mark;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class MarkController extends Controller
 {

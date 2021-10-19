@@ -23,7 +23,6 @@
                     <td>{{$student->courseFind->name}}</td>
                     <td>
                         <div>
-                            <a href="" class="btn btn-info">Add Mark</a>
                             <a href="{{route('student.profile',$student->id)}}" class="btn btn-danger">More Details</a>
                         </div>
                     </td>
