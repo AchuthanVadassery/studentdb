@@ -19,9 +19,7 @@ use App\Http\Controllers\SubjectBladeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('register',[CourseBladeController::class,'index'])->name('course.register');
 Route::post('/coursestore',[CourseBladeController::class,'store'])->name('course.store');
 Route::get('/courseedit/{id}',[CourseBladeController::class,'edit'])->name('course.edit');
@@ -30,7 +28,7 @@ Route::get('/coursedelete/{id}',[CourseBladeController::class,'delete'])->name('
 
 
 // route to register,edit,update and delete student details
-Route::get('/show_student',[StudentBladeController::class,'ShowStudent'])->name('student.show');
+Route::get('/',[StudentBladeController::class,'ShowStudent'])->name('student.show');
 Route::post('/store_student',[StudentBladeController::class,'RegisterStudent'])->name('student.store');
 Route::get('/edit_student/{id}',[StudentBladeController::class,'EditStudent'])->name('student.edit');
 Route::post('/update_student/{id}',[StudentBladeController::class,'UpdateStudent'])->name('student.update');
