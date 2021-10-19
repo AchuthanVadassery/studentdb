@@ -11,25 +11,18 @@
             <thead>
               <tr>
                 <th scope="col">SL NO</th>
-
                 <th scope="col">Subject Name</th>
                 <th scope="col">Course</th>
-
                 <th scope="col">Action</th>
-
               </tr>
             </thead>
             <tbody>
-
-
               <tr>
                 @php($i=1)
                 @foreach($subjects as $subject)
                 <th scope="row">{{$i++}}</th>
-
                 <td>{{$subject->name}}</td>
                 <td>{{$subject->user->name}}</td>
-
                 <td>
                   <div>
                     <a href="{{'/subject_edit/'.$subject->id}}" class="btn btn-info">Edit</a>
