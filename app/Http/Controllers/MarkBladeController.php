@@ -15,7 +15,7 @@ class MarkBladeController extends Controller
     // function to show the form for adding marks of a student
     public function ShowMark()
     {
-        $marks=Mark::with('FindExam')->get();
+        $marks=Mark::get();
         $students=Student::pluck('name','id');
         $exams=Exam::pluck('name','id');
         $courses=Course::pluck('name','id');

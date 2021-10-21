@@ -16,20 +16,21 @@ class Mark extends Model
     ];
 
     // function to get the exam name in blade
-    public function FindExam()
+    public function findExam()
     {
         return $this->hasOne(Exam::class,'id','exam_id');
     }
 
     // function to get the student name in blade
-    public function FindStudent()
+    public function findStudent()
     {
         return $this->hasOne(Student::class,'id','student_id');
     }
 
     // function to get the subject name in blade
-    public function FindSubject()
+    public function findSubject()
     {
         return $this->hasOne(Subject::class,'id','subject_id');
     }
+
 }

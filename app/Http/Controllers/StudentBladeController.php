@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
+use App\Models\Mark;
+use App\Models\Exam;
+
+
 
 class StudentBladeController extends Controller
 {
@@ -67,7 +71,6 @@ class StudentBladeController extends Controller
             'course_id' => $request->course_id
         ]);
         return Redirect()->route('student.show');
-
     }
 
     // function to delete a student data
@@ -82,15 +85,16 @@ class StudentBladeController extends Controller
     public function RegisteredStudents()
     {
         $students=Student::with('courseFind')->get();
-        $courses=Course::pluck('name','id');
-        return view('students_registered',compact('students','courses'));
+        return view('students_registered',compact('students'));
     }
 
     // function to see profile of a student
     public function StudentProfile($id)
     {
-        $students=Student::find($id);
-        $courses=Course::pluck('name','id');
-        return view('student_profile',compact('students','courses'));
+        $student=Student::find($id);     
+        $marks=Mark::where('student_id','=',$id)->get();
+        $exams=Exam::pluck('name','id');
+        // return $marks; 
+        return view('student_profile',compact('student','marks','exams'));
     }
 }
