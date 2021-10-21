@@ -16,4 +16,5 @@ class Subject extends Model
     public function user(){
         return $this->hasOne(Course::class,'id','course_id');
     }
+    
 }

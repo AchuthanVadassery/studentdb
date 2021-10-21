@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseBladeController;
 use App\Http\Controllers\StudentBladeController;
 use App\Http\Controllers\ExamBladeController;
+
+
 use App\Http\Controllers\SubjectBladeController;
 use App\Http\Controllers\MarkBladeController;
 
@@ -57,3 +59,5 @@ Route::get('/dropdownlist/getSubject/{id}',[MarkBladeController::class,'getSubje
 Route::get('/dropdownlist/getStudent/{id}',[MarkBladeController::class,'getStudent']);
 Route::get('/store_mark',[MarkBladeController::class,'StoreMark'])->name('mark.store');
 
+
+Route::get('/download-pdf',[CourseBladeController::class,'downloadPDF'])->name('pdf');

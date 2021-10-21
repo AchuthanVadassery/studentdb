@@ -1,7 +1,3 @@
-@extends('main')
-@section('admin')
-
-
 <!-- ajax for course and subject  -->
 <script type="text/javascript">
     jQuery(document).ready(function() {
