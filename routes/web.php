@@ -50,8 +50,7 @@ Route::post('/subject_store',[SubjectBladeController::class,'store'])->name('sub
 Route::get('/subject_edit/{id}',[SubjectBladeController::class,'edit'])->name('subject.edit');
 Route::post('/course_update/{id}',[SubjectBladeController::class,'update'])->name('subject.update');
 
-//search route
-Route::get('/search',[CourseBladeController::class,'search'])->name('search');
+
 
 // mark
 Route::get('add_mark',[MarkBladeController::class,'ShowMark'])->name('mark.add');
@@ -59,5 +58,6 @@ Route::get('/dropdownlist/getSubject/{id}',[MarkBladeController::class,'getSubje
 Route::get('/dropdownlist/getStudent/{id}',[MarkBladeController::class,'getStudent']);
 Route::get('/store_mark',[MarkBladeController::class,'StoreMark'])->name('mark.store');
 
-
-Route::get('/download-pdf',[CourseBladeController::class,'downloadPDF'])->name('pdf');
+//search route
+Route::get('/search_main',[CourseBladeController::class,'searching']);
+Route::post('/search_main',[CourseBladeController::class,'searching'])->name('search.main');

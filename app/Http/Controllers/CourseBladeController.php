@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Student;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -46,34 +47,41 @@ class CourseBladeController extends Controller
         $delete = Course::find($id)->forceDelete();
         return redirect()->route('course.register');
     }
-    public function search(Request $request)
+
+
+
+    public function searching(Request $req)
     {
-        $data = Course::all();
 
-        // Get the search value from the request
-        $search = $request->input('search');
 
-        // Search in the title and body columns from the posts table
-        $posts = Student::query()
-            ->where('created_at', '<=', "{$search}%")
-            ->get();
+        $method = $req->method();
 
-        // Return the search view with the resluts compacted
-        return view('search', compact('posts', 'data'));
-    }
-    public function downloadPDF(Request $request){
-        
 
-        // Get the search value from the request
-        $search = $request->input('search');
+        if ($req->isMethod('post')) {
+            $validated = $req->validate([
+                'from' => 'required',
+                'to' => 'required'
+            ]);
+            $from = $req->input('from');
+            $to   = $req->input('to');
+            if ($req->has('search')) {
+                // select search
+                $search = Student::where('created_at', '>=', $from)
+                    ->where('created_at', '<=', $to)->get();
 
-        // Search in the title and body columns from the posts table
-        $posts = Student::query()
-        ->where('created_at', '<=', "{$search}%")
-        ->get();
+                return view('import', ['ViewsPage' => $search]);
+            } elseif ($req->has('export')) {
+                // select PDF
+                $pdfreport = Student::where('created_at', '>=', $from)
+                    ->where('created_at', '<=', $to)->get();
+                $pdf = PDF::loadView('PDF_report', ['pdfreport' => $pdfreport])->setPaper('a4', 'landscape');
+                return $pdf->download('PDF-report.pdf');
+            }
+        } else {
+            //select all
+            $ViewsPage = Student::where('deleted_at', '=', Null)->get();
 
-        $pdf=PDF::loadView('search_student',compact('posts'))->setOptions(['defaultFont' => 'sans-serif']);
-        return $pdf->download('students.pdf');
-
+            return view('import', ['ViewsPage' => $ViewsPage]);
+        }
     }
 }

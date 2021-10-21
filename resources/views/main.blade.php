@@ -71,7 +71,7 @@
           <a href="{{route('mark.add')}}" class="nav-link">Add Mark</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{route('search')}}" class="nav-link">Search</a>
+          <a href="{{route('search.main')}}" class="nav-link">Search</a>
         </li>
 
       </ul>
