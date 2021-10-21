@@ -6,20 +6,20 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h4>{{$students->name}}</h4>
+                    <h4>{{$student->name}}</h4>
                     <h5>Student</h5>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Course Details</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mark Details</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-2">
-                <a href="{{route('student.edit',$students->id)}}" class="btn btn-info">Edit Profile</a>
+                <a href="{{route('student.edit',$student->id)}}" class="btn btn-info">Edit Profile</a>
             </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
                                 <label>Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->name}}</p>
+                                <p>{{$student->name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -39,15 +39,15 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->email}}</p>
+                                <p>{{$student->email}}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Date of Berth</label>
+                                <label>Date of Birth</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{Carbon\Carbon::parse($students->dob)->format('d-m-Y')}}</p>
+                                <p>{{Carbon\Carbon::parse($student->dob)->format('d-m-Y')}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -55,7 +55,7 @@
                                 <label>Address</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->address}}</p>
+                                <p>{{$student->address}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -63,7 +63,7 @@
                                 <label>Pincode</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->pincode}}</p>
+                                <p>{{$student->pincode}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -71,33 +71,34 @@
                                 <label>Course</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->courseFind->name}}</p>
+                                <p>{{$student->courseFind->name}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
+                        <!-- <div class="mb-3">
+                            <div class="form-group">
+                                <label for="country">Select Exam</label>
+                                <select name="exam_id" class="form-control" style="width:250px">
+                                    <option value="">--- Select Exam ---</option>
+                                    @foreach ($exams as $key => $exam)
+                                    <option value="{{ $key }}">{{ $exam }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div> -->
+                        @foreach($marks as $mark)
+                        <div class="col">
                             <div class="col-md-6">
-                                <label>Course Name</label>
+                                <label>{{$mark->findSubject->name}}</label>
+                                <label>{{$mark->findExam->name}}</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{$students->courseFind->name}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Subject Name</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p></p>
+                                <p>{{$mark->mark}}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br />
-                                <p>Your detail description</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-
                 </div>
             </div>
         </div>

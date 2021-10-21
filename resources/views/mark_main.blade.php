@@ -73,11 +73,10 @@
                             @foreach($marks as $mark)
                             <tr>
                                 <th scope="row">{{$i++}}</th>
+                                <td>{{$mark->findStudent->name}}</td>
+                                <td>{{$mark->findSubject->name}}</td>
                                 <td></td>
-                                <td>{{$mark->FindSubject->name}}</td>
-                                <td>{{$mark->FindExam->name}}</td>
                                 <td>{{$mark->mark}}</td>
-
                                 <td>
                                     <div>
                                         <a href="" class="btn btn-danger">More Details</a>
